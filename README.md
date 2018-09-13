@@ -1,23 +1,25 @@
 # zenith
-**zenith** is a [Go](https://www.golang.org)-based, light-weight CLI [Stellar](https://www.stellar.org) wallet.
+A [Go](https://www.golang.org)-based, light-weight CLI [Stellar](https://www.stellar.org) wallet.
+
+*zenith* is ideal for long-term safe storage of your [Stellar Lumens](https://www.stellar.org/lumens/).
 
 ## Getting Started
 
-These instructions will get you a copy of **zenith** up and running on your local machine for development and testing purposes.
+These instructions will get you a copy of *zenith* up and running on your local machine.
 
 ### Prerequisites
-You must have [Go](https://golang.org/doc/install) installed.
+You must have a valid and working [Go](https://golang.org/doc/install) workspace.
 
 
 ### Installing
-All you need to do is run:
+All you need to do is run
 ```
 go get github.com/themarkrizkallah/zenith
 ```
 
-**zenith** is now installed in your `$GOPATH/bin` directory !
+*zenith* is now installed in your `$GOPATH/bin` directory!
 
-**Test Run:**
+#### Test Run
 ```
 $ zenith
 A Go based Stellar wallet!
@@ -59,4 +61,4 @@ This project is licensed under the APACHE License - see [LICENSE](LICENSE) for d
 
 ## Acknowledgments
 
-* Tip of the hat to [filidorwiese](https://github.com/filidorwiese/) 's [stellar-wallet](https://github.com/filidorwiese/stellar-wallet) for inspiration on how to structure this project.
+* Tip of the hat to [filidorwiese](https://github.com/filidorwiese/)'s [stellar-wallet](https://github.com/filidorwiese/stellar-wallet) for inspiration on how to structure this project.
