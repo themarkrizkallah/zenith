@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"os"
 
-	homedir "github.com/mitchellh/go-homedir"
+	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -28,6 +28,26 @@ var (
 	cfgFile, currency       string
 	baseReserve, minBalance int
 	isTest                  bool
+)
+
+// AWS Credentials
+var (
+	AWS_ACCESS_KEY_ID string
+	AWS_ACCESS_KEY    string
+)
+
+// Database Credentials
+var (
+	DB_USER     string
+	DB_PASSWORD string
+	DB_NAME     string
+	DB_HOST     string
+	DB_PORT     int
+)
+
+// Environment Variables
+var (
+	userId string
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -48,6 +68,7 @@ func Execute() {
 }
 
 func init() {
+	viper.AutomaticEnv()
 	cobra.OnInitialize(initConfig)
 
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.zenith.yaml)")
@@ -59,6 +80,14 @@ func initConfig() {
 	viper.SetDefault("CURRENCY", "XLM")
 	viper.SetDefault("BASE_RESERVE", 0.5)
 	viper.SetDefault("MIN_BALANCE", 1)
+
+	// Get ENV Variables
+	DB_USER = viper.GetString("DB_USER")
+	DB_PASSWORD = viper.GetString("DB_PASS")
+	DB_NAME = viper.GetString("DB_NAME")
+	DB_HOST = viper.GetString("DB_ENDPOINT")
+	DB_PORT = viper.GetInt("DB_PORT")
+	userId = os.Getenv("USER_ID")
 
 	if cfgFile != "" {
 		// Use config file from the flag.
